@@ -5,7 +5,7 @@ conn = pyodbc.connect(
    'SERVER=WIN-8SNIO6IEEFI;'
    'DATABASE=OnlineCinema;'
    'UID=sa;'
-   'PWD=sa'
+   'PWD=**'
 )
 
 try:
