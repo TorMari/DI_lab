@@ -73,8 +73,18 @@ conn.commit()
 """
 
 
-print("Movies list:")
+print("Subscribers list:")
+cursor.execute("SELECT Subscriber_ID, FullName, Email FROM Subscriber")
+for row in cursor.fetchall():
+   print(row)
+
+print("\nMovies list:")
 cursor.execute("SELECT Movie_ID, Title, Genre, ReleaseYear FROM Movie")
+for row in cursor.fetchall():
+   print(row)
+
+print("\nSessions list:")
+cursor.execute("SELECT Session_ID, Subscriber_ID, Movie_ID, WatchDate FROM Session")
 for row in cursor.fetchall():
    print(row)
 
@@ -83,14 +93,23 @@ for row in cursor.fetchall():
 cursor.execute("INSERT INTO Movie (Title, Genre, ReleaseYear) VALUES (?, ?, ?)", ("Avatar", "Fantasy", 2009))
 conn.commit()
 
+print("\nMovies list:")
+cursor.execute("SELECT Movie_ID, Title, Genre, ReleaseYear FROM Movie")
+for row in cursor.fetchall():
+   print(row)
+
 
 cursor.execute("UPDATE Movie SET Genre=? WHERE Title=?", ("Science fiction", "Avatar"))
 conn.commit()
 
+print("\nMovies list:")
+cursor.execute("SELECT Movie_ID, Title, Genre, ReleaseYear FROM Movie")
+for row in cursor.fetchall():
+   print(row)
+
 
 cursor.execute("DELETE FROM Movie WHERE Title=?", ("Avatar",))
 conn.commit()
-
 
 print("\nMovies list:")
 cursor.execute("SELECT Movie_ID, Title, Genre, ReleaseYear FROM Movie")
