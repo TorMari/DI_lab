@@ -9,7 +9,7 @@ import psycopg2
 DB_CONFIG = {
     "dbname": "PipelineDB",
     "user": "postgres",
-    "password": "qaz123QAZ!@#",
+    "password": "**",
     "host": "localhost",
     "port": 5432,
 }
